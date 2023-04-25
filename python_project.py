@@ -20,6 +20,18 @@ def search_contact():
             if search_key in line:
                 print(line.strip())
 
+def delete_contact():
+    search_key = input('Введите номер контакта: ')
+    with open('file_contact.txt', 'r', encoding='utf-8') as f:
+        for line in f:
+            if search_key in line:
+                j = line.strip()
+    with open('file_contact.txt', 'r', encoding='utf-8') as fr:
+        lines = fr.readlines()
+        with open('file_contact.txt', 'w', encoding='utf-8') as fw:
+            for line in lines:
+                if line.strip('\n') != j:
+                    fw.write(line)
 def main():
     while True:
         print('1. Добавить контакт')
